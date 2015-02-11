@@ -27,8 +27,6 @@ declare -a APT_PACKAGES=(
     "nautilus-dropbox"
     "nodejs"
     "npm"
-    "opera"
-    "opera-next"
     "transmission"
     "vim-gnome"
     "virtualbox"
