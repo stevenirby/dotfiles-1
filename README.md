@@ -6,8 +6,8 @@ To setup the dotfiles, run the following snippet in the terminal:
 
 | OS | Snippet |
 |:---:|:---|
-| OS X | `bash -c "$(curl -LsS https://raw.github.com/alrra/dotfiles/master/dotfiles)"` |
-| Ubuntu | `bash -c "$(wget -qO - https://raw.github.com/alrra/dotfiles/master/dotfiles)"` |
+| OS X | `bash -c "$(curl -LsS https://raw.github.com/stevenirby/dotfiles-1/master/dotfiles)"` |
+| Ubuntu | `bash -c "$(wget -qO - https://raw.github.com/stevenirby/dotfiles-1/master/dotfiles)"` |
 
 The snippet will:
 
