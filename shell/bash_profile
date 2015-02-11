@@ -62,7 +62,16 @@ source_bash_files() {
         file="$HOME/.${FILES_TO_SOURCE[$i]}"
         [ -r "$file" ] && source "$file"
     done
+}
 
+audit_file() {
+    case "$TERM" in
+    xterm*|rxvt*)
+        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"; echo `date +"%b %e %Y %H:%M:%S"` $? \"`history 1|cut -c7-`\" in `pwd` >> ~/.audit'
+        ;;
+    *)
+        ;;
+    esac
 }
 
 # ----------------------------------------------------------------------
@@ -78,7 +87,7 @@ main() {
 
     source_bash_files
     enable_programmable_completion
-
+    audit_file
 }
 
 main
