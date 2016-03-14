@@ -53,7 +53,7 @@ add_key() {
 }
 
 add_ppa() {
-    sudo add-apt-repository -y ppa:"$1" &> /dev/null
+    sudo add-apt-repository -y "$1" &> /dev/null
 }
 
 add_source_list() {
