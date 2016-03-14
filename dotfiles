@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 declare -r GITHUB_REPOSITORY="stevenirby/dotfiles-1"
 
 declare -r DOTFILES_ORIGIN="git@github.com:$GITHUB_REPOSITORY.git"

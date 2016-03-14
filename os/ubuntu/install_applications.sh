@@ -58,12 +58,6 @@ add_ppa() {
 
 add_software_sources() {
 
-    # Google Chrome
-    [ $(cmd_exists "google-chrome") -eq 1 ] \
-        && add_key "https://dl-ssl.google.com/linux/linux_signing_key.pub" \
-        && add_source_list \
-                "http://dl.google.com/linux/deb/ stable main" \
-                "google-chrome.list"
 }
 
 add_source_list() {
