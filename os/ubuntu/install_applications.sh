@@ -15,24 +15,32 @@ declare -a APT_PACKAGES=(
     #"ubuntu-restricted-extras"
 
     # Other
-    "atom"
-    "chromium-browser"
     "curl"
-    "firefox-trunk"
-    "flashplugin-installer"
+    "unar"
     "gimp"
     "git"
-    "google-chrome-unstable"
+    "google-chrome-stable"
+    "gparted"
     "imagemagick"
+    "mac-ithemes-v3"
+    "mac-icons-v3"
     "nautilus-dropbox"
     "nodejs"
     "npm"
+    "network-manager-openvpn"
+    "php5-cli"
+    "python-pip"
+    "rar"
     "transmission"
-    "vim-gnome"
+    "kazam"
+    "vim"
     "virtualbox"
     "vlc"
     "xclip"
-    "zopfli"
+    "wine"
+    "jq"
+    "oracle-java8-installer"
+    "rubyq"
 
 )
 
@@ -50,32 +58,12 @@ add_ppa() {
 
 add_software_sources() {
 
-    # Atom
-    [ $(cmd_exists "atom") -eq 1 ] \
-        && add_ppa "webupd8team/atom"
-
-    # Firefox Nightly
-    [ $(cmd_exists "firefox-trunk") -eq 1 ] \
-        && add_ppa "ubuntu-mozilla-daily/ppa"
-
     # Google Chrome
     [ $(cmd_exists "google-chrome") -eq 1 ] \
         && add_key "https://dl-ssl.google.com/linux/linux_signing_key.pub" \
         && add_source_list \
                 "http://dl.google.com/linux/deb/ stable main" \
                 "google-chrome.list"
-
-    # NodeJS
-    [ $(cmd_exists "node") -eq 1 ] \
-        && add_ppa "chris-lea/node.js"
-
-    # Opera & Opera Next
-    [ $(cmd_exists "opera") -eq 1 ] \
-        && add_key "http://deb.opera.com/archive.key" \
-        && add_source_list \
-                "http://deb.opera.com/opera/ stable non-free" \
-                "opera.list"
-
 }
 
 add_source_list() {
@@ -110,14 +98,27 @@ update_and_upgrade() {
 
 }
 
+node() {
+    curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+    execute "sudo apt-get install -y nodejs"
+}
+
+slack() {
+    wget -qO - "https://slack-ssb-updates.global.ssl.fastly.net/linux_releases/slack-desktop-2.0.1-amd64.deb"
+    execute "sudo dpkg -i slack-desktop-2.0.1-amd64.deb"
+}
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main() {
 
     local i=""
 
+    add_ppa "ppa:noobslab/themes"
     add_software_sources
     update_and_upgrade
+    node
+    slack
 
     printf "\n"
 
@@ -126,6 +127,8 @@ main() {
     done
 
     printf "\n"
+
+    echo "Cloning all repos"
 
     update_and_upgrade
     remove_unneeded_packages
