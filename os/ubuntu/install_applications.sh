@@ -117,8 +117,8 @@ main() {
     add_ppa "ppa:noobslab/themes"
     add_software_sources
     update_and_upgrade
-    node
     slack
+    node
 
     printf "\n"
 
