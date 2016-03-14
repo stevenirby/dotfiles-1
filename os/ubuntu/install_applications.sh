@@ -56,10 +56,6 @@ add_ppa() {
     sudo add-apt-repository -y ppa:"$1" &> /dev/null
 }
 
-add_software_sources() {
-
-}
-
 add_source_list() {
     sudo sh -c "printf 'deb $1' >> '/etc/apt/sources.list.d/$2'"
 }
@@ -109,7 +105,6 @@ main() {
     local i=""
 
     add_ppa "ppa:noobslab/themes"
-    add_software_sources
     update_and_upgrade
     slack
     node
