@@ -60,6 +60,22 @@ add_source_list() {
     sudo sh -c "printf 'deb $1' >> '/etc/apt/sources.list.d/$2'"
 }
 
+add_software_sources() {
+    # apple theme
+    add_ppa "ppa:noobslab/themes"
+
+    [ $(cmd_exists "atom") -eq 1 ] \
+        && add_ppa "webupd8team/atom"
+
+    # Google Chrome
+    [ $(cmd_exists "google-chrome") -eq 1 ] \
+        && add_key "https://dl-ssl.google.com/linux/linux_signing_key.pub" \
+        && add_source_list \
+                "http://dl.google.com/linux/deb/ stable main" \
+                "google-chrome.list"
+}
+
+
 install_package() {
     local q="${2:-$1}"
 
@@ -94,8 +110,9 @@ node() {
 }
 
 slack() {
-    wget -qO - "https://slack-ssb-updates.global.ssl.fastly.net/linux_releases/slack-desktop-2.0.1-amd64.deb"
-    execute "sudo dpkg -i slack-desktop-2.0.1-amd64.deb"
+    local deb_file="slack-desktop-2.0.1-amd64.deb"
+    wget -qO - "https://slack-ssb-updates.global.ssl.fastly.net/linux_releases/"$deb_file > $deb_file
+    execute "sudo dpkg -i" $deb_file
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -104,10 +121,10 @@ main() {
 
     local i=""
 
-    # add_ppa "ppa:noobslab/themes"
+    add_software_sources
     update_and_upgrade
-    # slack
-    # node
+    slack
+    node
 
     printf "\n"
 
