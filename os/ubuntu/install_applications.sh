@@ -106,12 +106,12 @@ update_and_upgrade() {
 
 node() {
     wget -qO- "https://deb.nodesource.com/setup_5.x" | sudo -E bash -
-    execute "sudo apt-get install -y nodejs"
+    execute "sudo apt-get install -qqy nodejs"
 }
 
 slack() {
     local deb_file="slack-desktop-2.0.1-amd64.deb"
-    wget -O $deb_file "https://slack-ssb-updates.global.ssl.fastly.net/linux_releases/"$deb_file && sudo dpkg -i $deb_file
+    wget -qO $deb_file "https://slack-ssb-updates.global.ssl.fastly.net/linux_releases/"$deb_file && sudo dpkg -i $deb_file
     rm $deb_file
 }
 
