@@ -71,8 +71,8 @@ add_software_sources() {
     [ $(cmd_exists "google-chrome") -eq 1 ] \
         && add_key "https://dl-ssl.google.com/linux/linux_signing_key.pub" \
         && add_source_list \
-                "http://dl.google.com/linux/deb/ stable main" \
-                "google-chrome.list"
+                "http://dl.google.com/linux/chrome/deb/ stable main" \
+                "google.list"
 }
 
 
