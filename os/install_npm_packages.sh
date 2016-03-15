@@ -4,6 +4,10 @@ cd "$(dirname "${BASH_SOURCE}")" && source "utils.sh"
 
 declare -r -a NPM_PACKAGES=(
     "jshint"
+    "node-inspector"
+    "gulp"
+    "karma-cli"
+    "bower"
 )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
