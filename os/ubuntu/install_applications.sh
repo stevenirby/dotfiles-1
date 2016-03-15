@@ -104,10 +104,10 @@ main() {
 
     local i=""
 
-    add_ppa "ppa:noobslab/themes"
+    # add_ppa "ppa:noobslab/themes"
     update_and_upgrade
-    slack
-    node
+    # slack
+    # node
 
     printf "\n"
 
@@ -119,7 +119,6 @@ main() {
 
     echo "Cloning all repos"
 
-    update_and_upgrade
     remove_unneeded_packages
 
 }
