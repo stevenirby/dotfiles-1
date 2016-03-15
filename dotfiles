@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+# set -x
 
 declare -r GITHUB_REPOSITORY="stevenirby/dotfiles-1"
 
