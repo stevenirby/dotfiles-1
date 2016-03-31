@@ -2,5 +2,6 @@
 
 cd "$(dirname "${BASH_SOURCE}")";
 
-ln -s -f ~/Downloads/ ~/Dropbox/DellXPS13/Downloads/
-ln -s -f ~/Documents/ ~/Dropbox/DellXPS13/Documents/
+sudo rm -r ~/Documents/ ~/Documents/
+ln -s -f ~/Dropbox/DellXPS13/Downloads/ ~/Downloads/
+ln -s -f ~/Dropbox/DellXPS13/Documents/ ~/Documents/
