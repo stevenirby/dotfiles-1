@@ -5,14 +5,18 @@
 # TODO:
 # - fix the broken vim plugin mess
 # - make the output for apt-get update and upgrade better?
+# - have this restore the VPN
 # - replace the git dot files with my actual own
 # - back up and copy more stuff out of dropbox
+# - have it back up and restore current cronjobs
 # - lots of programs are no longer installing under ubuntu 15.04 >
 # - have some kind of perioid backup script/cronjob set up and ran by this scrit(s)
 # - have some kind of list of all git repos in my projects dir, which gets backed up, restored
+# - create sever mode, which sets up dotfiles for a sever
 # and then all repos fetched and re-cloned by this script(s)
 # - merge the upstream changes into my, I'm sure many things are fixed there
 # - maybe; incorporate the ubuntu backup?
+# - maybe; have it restore the VMs as well and other huge files?
 
 declare -r GITHUB_REPOSITORY="stevenirby/dotfiles-1"
 
