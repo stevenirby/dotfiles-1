@@ -2,6 +2,18 @@
 
 # set -x
 
+# TODO:
+# - fix the broken vim plugin mess
+# - make the output for apt-get update and upgrade better?
+# - replace the git dot files with my actual own
+# - back up and copy more stuff out of dropbox
+# - lots of programs are no longer installing under ubuntu 15.04 >
+# - have some kind of perioid backup script/cronjob set up and ran by this scrit(s)
+# - have some kind of list of all git repos in my projects dir, which gets backed up, restored
+# and then all repos fetched and re-cloned by this script(s)
+# - merge the upstream changes into my, I'm sure many things are fixed there
+# - maybe; incorporate the ubuntu backup?
+
 declare -r GITHUB_REPOSITORY="stevenirby/dotfiles-1"
 
 declare -r DOTFILES_ORIGIN="git@github.com:$GITHUB_REPOSITORY.git"
@@ -185,6 +197,9 @@ extract() {
 }
 
 open_browser_wait_for_dropbox() {
+    # This can't be done headlessly in a nice way. I mean you can run dropbox headlessly,
+    # but that wouldn't be idea for desktoo, so no.
+    # do this early on since it takes so long to sync and download the file/folders
     xdg-open 'https://www.google.com/?q=download+dropbox+ubuntu' > /dev/null
 
     ask_for_confirmation "Is dropbox installed and ready to roll?"
