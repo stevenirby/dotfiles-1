@@ -211,7 +211,6 @@ main() {
 
     download_utils
     ask_for_sudo
-    open_browser_wait_for_dropbox
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Setup the `dotfiles` if needed
@@ -243,6 +242,9 @@ main() {
 
     print_info "Create symbolic links"
     ./os/create_symbolic_links.sh
+
+    print_info "Install Dropbox"
+    open_browser_wait_for_dropbox
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
