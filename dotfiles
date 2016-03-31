@@ -184,6 +184,17 @@ extract() {
 
 }
 
+open_browser_wait_for_dropbox() {
+    xdg-open 'https://www.google.com/?q=download+dropbox+ubuntu'
+
+    ask_for_confirmation "Is dropbox installed and ready to roll?"
+    printf "\n"
+
+    if answer_is_yes; then
+        ./dropbox-symlink.sh
+    fi
+}
+
 # ----------------------------------------------------------------------
 # | Main                                                               |
 # ----------------------------------------------------------------------
@@ -200,7 +211,7 @@ main() {
 
     download_utils
     ask_for_sudo
-
+    open_browser_wait_for_dropbox
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Setup the `dotfiles` if needed
