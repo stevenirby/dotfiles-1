@@ -185,7 +185,7 @@ extract() {
 }
 
 open_browser_wait_for_dropbox() {
-    xdg-open 'https://www.google.com/?q=download+dropbox+ubuntu'
+    xdg-open 'https://www.google.com/?q=download+dropbox+ubuntu' > /dev/null
 
     ask_for_confirmation "Is dropbox installed and ready to roll?"
     printf "\n"

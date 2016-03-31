@@ -19,7 +19,6 @@ declare -a APT_PACKAGES=(
     "unar"
     "gimp"
     "git"
-    "google-chrome-stable"
     "gparted"
     "imagemagick"
     "mac-ithemes-v3"
@@ -105,14 +104,36 @@ update_and_upgrade() {
 }
 
 node() {
-    wget -qO- "https://deb.nodesource.com/setup_5.x" | sudo -E bash -
-    execute "sudo apt-get install -qqy nodejs"
+    xdg-open 'https://www.google.com/?q=download+nodejs+ubuntu' > /dev/null
+
+    ask_for_confirmation "Is node installed and you want to continue?"
+    printf "\n"
+
+    if answer_is_yes; then
+        echo
+    fi
+}
+
+chrome() {
+    xdg-open 'https://www.google.com/?q=download+chrome+ubuntu' > /dev/null
+
+    ask_for_confirmation "Is chrome installed and you want to continue?"
+    printf "\n"
+
+    if answer_is_yes; then
+        echo
+    fi
 }
 
 slack() {
-    local deb_file="slack-desktop-2.0.1-amd64.deb"
-    wget -qO $deb_file "https://slack-ssb-updates.global.ssl.fastly.net/linux_releases/"$deb_file && sudo dpkg -i $deb_file
-    rm $deb_file
+    xdg-open 'https://www.google.com/?q=download+slack+ubuntu' > /dev/null
+
+    ask_for_confirmation "Is slack installed and you want to continue?"
+    printf "\n"
+
+    if answer_is_yes; then
+        echo
+    fi
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
