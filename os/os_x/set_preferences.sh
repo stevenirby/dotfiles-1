@@ -187,10 +187,10 @@ set_keyboard_preferences() {
 set_language_and_region_preferences() {
 
     # Set language and text formats
-    defaults write NSGlobalDomain AppleLanguages -array "en" "ro"
-    defaults write NSGlobalDomain AppleLocale -string "en_RO@currency=EUR"
-    defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
-    defaults write NSGlobalDomain AppleMetricUnits -bool true
+    defaults write NSGlobalDomain AppleLanguages -array "en"
+    #defaults write NSGlobalDomain AppleLocale -string "en_RO@currency=EUR"
+    #defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
+    #defaults write NSGlobalDomain AppleMetricUnits -bool true
 
     # Disable auto-correct
     #defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -198,7 +198,7 @@ set_language_and_region_preferences() {
 
     # Set the timezone
     # (see `systemsetup -listtimezones` for other values)
-    sudo systemsetup -settimezone "Europe/Bucharest" &> /dev/null
+    #sudo systemsetup -settimezone "Europe/Bucharest" &> /dev/null
 
 }
 
