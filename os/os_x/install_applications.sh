@@ -20,8 +20,6 @@ declare -a HOMEBREW_FORMULAE=(
 
 declare -a HOMEBREW_CASKS=(
     "android-file-transfer"
-    "atom"
-    "chromium"
     "dropbox"
     "firefox"
     "flash"
@@ -30,7 +28,6 @@ declare -a HOMEBREW_CASKS=(
     "libreoffice"
     "licecap"
     "lisanet-gimp"
-    "macvim"
     "spectacle"
     "the-unarchiver"
     "transmission"

@@ -188,9 +188,6 @@ set_language_and_region_preferences() {
 
     # Set language and text formats
     defaults write NSGlobalDomain AppleLanguages -array "en"
-    #defaults write NSGlobalDomain AppleLocale -string "en_RO@currency=EUR"
-    #defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
-    #defaults write NSGlobalDomain AppleMetricUnits -bool true
 
     # Disable auto-correct
     #defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -365,13 +362,13 @@ set_transmission_preferences() {
     # Don’t prompt for confirmation before downloading
     defaults write org.m0k.transmission DownloadAsk -bool false
 
-    # Use `~/Downloads` to store complete downloads
+    # Use `~/Movies` to store complete downloads
     defaults write org.m0k.transmission DownloadChoice -string "Constant"
-    defaults write org.m0k.transmission DownloadFolder -string "$HOME/Downloads";
+    defaults write org.m0k.transmission DownloadFolder -string "$HOME/Movies";
 
-    # Use `~/Downloads/torrents` to store incomplete downloads
+    # Use `~/torrents` to store incomplete downloads
     defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
-    defaults write org.m0k.transmission IncompleteDownloadFolder -string "$HOME/Downloads/torrents"
+    defaults write org.m0k.transmission IncompleteDownloadFolder -string "$HOME/torrents"
 
     # Hide the donate message
     defaults write org.m0k.transmission WarningDonate -bool false
@@ -407,7 +404,7 @@ set_ui_and_ux_preferences() {
     defaults write com.apple.screencapture disable-shadow -bool true
 
     # Save screenshots to the ~/Desktop
-    defaults write com.apple.screencapture location -string "$HOME/Desktop"
+    defaults write com.apple.screencapture location -string "$HOME/tmp"
 
     # Save screenshots as PNGs
     defaults write com.apple.screencapture type -string "png"
