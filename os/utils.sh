@@ -110,3 +110,13 @@ print_success() {
     # Print output in green
     printf "\e[0;32m  [✔] $1\e[0m\n"
 }
+
+open_webpage() {
+    declare -r OS="$(get_os)"
+
+    if [ "$OS" == "osx" ]; then
+        open "$1"
+    elif [ "$OS" == "ubuntu" ]; then
+        xdg-open "$1" > /dev/null
+    fi
+}

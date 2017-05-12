@@ -200,10 +200,10 @@ extract() {
 }
 
 open_browser_wait_for_dropbox() {
-    # This can't be done headlessly in a nice way. I mean you can run dropbox headlessly,
-    # but that wouldn't be idea for desktoo, so no.
+    # This can't be done heedlessly in a nice way. I mean you can run dropbox heedlessly,
+    # but that wouldn't be idea for desktop, so no.
     # do this early on since it takes so long to sync and download the file/folders
-    xdg-open 'https://www.google.com/?q=download+dropbox+ubuntu' > /dev/null
+    open_webpage 'https://www.google.com/?q=download+dropbox+ubuntu'
 
     ask_for_confirmation "Is dropbox installed and ready to roll?"
     printf "\n"
