@@ -38,7 +38,7 @@ createDotfileLinks() {
     local sourceFile=""
     local targetFile=""
 
-    for i in ${FILES_TO_SYMLINK[@]}; do
+    for i in ${DOT_FILES_TO_SYMLINK[@]}; do
 
         sourceFile="$(cd .. && pwd)/$i"
         targetFile="$HOME/.$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
@@ -71,7 +71,7 @@ createFolderLinks() {
     local sourceFile=""
     local targetFile=""
 
-    for i in ${DOT_FILES_TO_SYMLINK[@]}; do
+    for i in ${FILES_TO_SYMLINK[@]}; do
 
         sourceFile="$(cd .. && pwd)/$i"
         targetFile="$HOME/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
