@@ -15,6 +15,11 @@ declare -a FILES_TO_SYMLINK=(
     "shell/inputrc"
     "shell/screenrc"
 
+    "Dropbox/Backup"
+    "Dropbox/Documents"
+    "Dropbox/Downloads"
+    "Dropbox/Gmail"
+
     "git/gitattributes"
     "git/gitignore"
 
@@ -35,23 +40,25 @@ main() {
 
         sourceFile="$(cd .. && pwd)/$i"
         targetFile="$HOME/.$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
+        echo $targetFile
+        echo $sourceFile
 
         if [ -e "$targetFile" ]; then
             if [ "$(readlink "$targetFile")" != "$sourceFile" ]; then
 
                 ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
                 if answer_is_yes; then
-                    rm -rf "$targetFile"
-                    execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+                    # rm -rf "$targetFile"
+                    echo execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
                 else
-                    print_error "$targetFile → $sourceFile"
+                    echo print_error "$targetFile → $sourceFile"
                 fi
 
             else
-                print_success "$targetFile → $sourceFile"
+                echo print_success "$targetFile → $sourceFile"
             fi
         else
-            execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+            echo execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
         fi
 
     done

@@ -23,7 +23,6 @@ declare -a HOMEBREW_CASKS=(
     "dropbox"
     "firefox"
     "flash"
-    "google-chrome"
     "imageoptim"
     "libreoffice"
     "licecap"

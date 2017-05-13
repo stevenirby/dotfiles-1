@@ -3,7 +3,7 @@
 cd "$(dirname "${BASH_SOURCE}")" && source "utils.sh"
 
 declare -a DIRECTORIES=(
-    "$HOME/archive"
+    "$HOME/tmp"
     "$HOME/Downloads/torrents"
     "$HOME/projects",
     "$HOME/.vim"
