@@ -75,8 +75,6 @@ createFolderLinks() {
 
         sourceFile="$(cd .. && pwd)/$i"
         targetFile="$HOME/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
-        echo $sourceFile
-        echo $targetFile
 
         if [ -e "$targetFile" ]; then
             if [ "$(readlink "$targetFile")" != "$sourceFile" ]; then
@@ -84,16 +82,16 @@ createFolderLinks() {
                 ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
                 if answer_is_yes; then
                     # rm -rf "$targetFile"
-                    echo execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+                    execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
                 else
-                    echo print_error "$targetFile → $sourceFile"
+                    print_error "$targetFile → $sourceFile"
                 fi
 
             else
-                echo print_success "$targetFile → $sourceFile"
+                print_success "$targetFile → $sourceFile"
             fi
         else
-            echo execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+            execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
         fi
 
     done
