@@ -2,7 +2,7 @@
 
 cd "$(dirname "${BASH_SOURCE}")" && source "utils.sh"
 
-declare -a FILES_TO_SYMLINK=(
+declare -a DOT_FILES_TO_SYMLINK=(
     "shell/bash_aliases"
     "shell/bash_exports"
     "shell/bash_functions"
@@ -15,11 +15,6 @@ declare -a FILES_TO_SYMLINK=(
     "shell/inputrc"
     "shell/screenrc"
 
-    "Dropbox/Backup"
-    "Dropbox/Documents"
-    "Dropbox/Downloads"
-    "Dropbox/Gmail"
-
     "git/gitattributes"
     "git/gitignore"
 
@@ -28,9 +23,16 @@ declare -a FILES_TO_SYMLINK=(
     "vim/gvimrc"
 )
 
+declare -a FILES_TO_SYMLINK=(
+    "Dropbox/Backup"
+    "Dropbox/Documents"
+    "Dropbox/Downloads"
+    "Dropbox/Gmail"
+)
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-main() {
+createDotfileLinks() {
 
     local i=""
     local sourceFile=""
@@ -63,4 +65,40 @@ main() {
 
 }
 
-main
+createFolderLinks() {
+
+    local i=""
+    local sourceFile=""
+    local targetFile=""
+
+    for i in ${DOT_FILES_TO_SYMLINK[@]}; do
+
+        sourceFile="$(cd .. && pwd)/$i"
+        targetFile="$HOME/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
+        echo $sourceFile
+        echo $targetFile
+
+        if [ -e "$targetFile" ]; then
+            if [ "$(readlink "$targetFile")" != "$sourceFile" ]; then
+
+                ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
+                if answer_is_yes; then
+                    # rm -rf "$targetFile"
+                    echo execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+                else
+                    echo print_error "$targetFile → $sourceFile"
+                fi
+
+            else
+                echo print_success "$targetFile → $sourceFile"
+            fi
+        else
+            echo execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+        fi
+
+    done
+
+}
+
+# createDotfileLinks
+createFolderLinks
