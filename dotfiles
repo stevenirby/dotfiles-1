@@ -3,19 +3,22 @@
 # set -x
 
 # TODO:
-# - make the output for apt-get update and upgrade better?
+# - make output for apt-get update / upgrade better
+# - write script/cronjob to backup all day daily
 # - have this restore the VPN
 # - replace the git dot files with my actual own
+# - have the .gitconfig file replace placeholder email with my real email
 # - back up and copy more stuff out of dropbox
 # - have it back up and restore current cronjobs
-# - lots of programs are no longer installing under ubuntu 15.04 >
+# - lots of programs are no longer installing under ubuntu 15.04 >; replace and fix
 # - have some kind of period backup script/cronjob set up and ran by this scrit(s)
 # - have some kind of list of all git repos in my projects dir, which gets backed up, restored
-# - create sever mode, which sets up dotfiles for a sever
 # and then all repos fetched and re-cloned by this script(s)
+# - create sever mode, which sets up dotfiles for a sever
 # - merge the upstream changes into my, I'm sure many things are fixed there
 # - maybe; incorporate the ubuntu backup?
-# - maybe; have it restore the VMs as well and other huge files?
+# - have it restore the VMs as well and other huge files?
+# - pull in updates from upstream branch
 
 declare -r GITHUB_REPOSITORY="stevenirby/dotfiles-1"
 
@@ -209,7 +212,7 @@ open_browser_wait_for_dropbox() {
     printf "\n"
 
     if answer_is_yes; then
-        ./dropbox-symlink.sh
+        ./restore_data.sh
     fi
 }
 
