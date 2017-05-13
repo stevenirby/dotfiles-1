@@ -206,7 +206,13 @@ open_browser_wait_for_dropbox() {
     # This can't be done heedlessly in a nice way. I mean you can run dropbox heedlessly,
     # but that wouldn't be idea for desktop, so no.
     # do this early on since it takes so long to sync and download the file/folders
-    open_webpage 'https://www.google.com/?q=download+dropbox+ubuntu'
+    declare -r OS="$(get_os)"
+
+    if [ "$OS" == "osx" ]; then
+        open_webpage 'https://www.google.com/?q=download+dropbox+mac os'
+    elif [ "$OS" == "ubuntu" ]; then
+        open_webpage 'https://www.google.com/?q=download+dropbox+ubuntu'
+    fi
 
     ask_for_confirmation "Is dropbox installed and ready to roll?"
     printf "\n"
