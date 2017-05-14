@@ -40,7 +40,7 @@ main() {
 }
 
 openGitConfig() {
-    vim $HOME/.gitconfig
+    nano $HOME/.gitconfig
 }
 
 audit() {
