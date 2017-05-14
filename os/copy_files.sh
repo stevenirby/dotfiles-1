@@ -50,7 +50,7 @@ audit() {
 
 vpn() {
     local vpn="~/Dropbox/Backup/.audit"
-    execute "cp $audit $HOME" "$audit → $HOME"
+    execute "cp $vpn $HOME" "$vpn → $HOME"
 }
 
 apps() {

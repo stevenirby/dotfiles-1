@@ -13,7 +13,6 @@ main() {
     elif [ "$OS" == "ubuntu" ]; then
         ./ubuntu/set_preferences.sh
     fi
-
 }
 
 main

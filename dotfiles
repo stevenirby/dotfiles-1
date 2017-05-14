@@ -345,6 +345,17 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+    print_info "Finalize Everything"
+
+    ask_for_confirmation "Do you want to finalize everything?"
+    printf "\n"
+
+    if answer_is_yes; then
+        ./os/finalize.sh
+    fi
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
     print_info "Restart"
 
     ask_for_confirmation "Do you want to restart?"
