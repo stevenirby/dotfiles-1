@@ -8,6 +8,7 @@ declare -r -a NPM_PACKAGES=(
     "gulp"
     "karma-cli"
     "bower"
+    "yarn"
 )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

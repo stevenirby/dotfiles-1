@@ -20,6 +20,17 @@ main() {
 
     execute "ln -s $gmvault ~/.gmvault" "$gmvault → ~/.gmvault"
     execute "ln -s $vms ~/VirtualBox\ VMs" "$vms → ~/VirtualBox\ VMs"
+
+    apps
+}
+
+apps() {
+    declare -r OS="$(get_os)"
+    local apps="~/Dropbox/Backup/Macbook\ Pro/Applications/*"
+
+    if [ "$OS" == "osx" ]; then
+        execute "cp -av $apps $HOME/Applications/" "$apps → $HOME/Applications"
+    fi
 }
 
 main

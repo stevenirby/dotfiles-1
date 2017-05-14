@@ -35,7 +35,6 @@ main() {
 
     openGitConfig
     audit
-    apps
     vpn
 }
 
@@ -49,17 +48,8 @@ audit() {
 }
 
 vpn() {
-    local vpn="~/Dropbox/Backup/.audit"
+    local vpn="~/Dropbox/Backup/vpn"
     execute "cp $vpn $HOME" "$vpn → $HOME"
-}
-
-apps() {
-    declare -r OS="$(get_os)"
-    local apps="~/Dropbox/Backup/Macbook\ Pro/Applications/*"
-
-    if [ "$OS" == "osx" ]; then
-        execute "cp -av $apps $HOME/Applications/" "$apps → $HOME/Applications"
-    fi
 }
 
 main
