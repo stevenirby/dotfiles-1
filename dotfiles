@@ -268,21 +268,6 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    if cmd_exists "vim"; then
-
-        print_info "Install Vim plugins"
-
-        ask_for_confirmation "Do you want to install the Vim plugins?"
-        printf "\n"
-
-        if answer_is_yes; then
-            ./os/install_vim_plugins.sh
-        fi
-
-    fi
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
     print_info "Copy files"
     ./os/copy_files.sh
 
@@ -300,6 +285,21 @@ main() {
         ./os/nvm.sh
         printf "\n"
         ./os/install_npm_packages.sh
+    fi
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    if cmd_exists "vim"; then
+
+        print_info "Install Vim plugins"
+
+        ask_for_confirmation "Do you want to install the Vim plugins?"
+        printf "\n"
+
+        if answer_is_yes; then
+            ./os/install_vim_plugins.sh
+        fi
+
     fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
