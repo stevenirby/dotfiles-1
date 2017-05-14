@@ -80,55 +80,55 @@ main() {
 
     print_success "XCode Command Line Tools\n"
 
-    # # Homebrew
-    # if ! cmd_exists "brew"; then
-    #     printf "\n" | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    #     #  └─ simulate the ENTER keypress
-    #     print_result $? "brew"
-    # fi
+    # Homebrew
+    if ! cmd_exists "brew"; then
+        printf "\n" | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        #  └─ simulate the ENTER keypress
+        print_result $? "brew"
+    fi
 
-    # if cmd_exists "brew"; then
+    if cmd_exists "brew"; then
 
-    #     execute "brew update" "brew (update)"
-    #     execute "brew upgrade" "brew (upgrade)"
-    #     execute "brew cleanup" "brew (cleanup)"
+        execute "brew update" "brew (update)"
+        execute "brew upgrade" "brew (upgrade)"
+        execute "brew cleanup" "brew (cleanup)"
 
-    #     # Homebrew formulae
-    #     for i in ${!HOMEBREW_FORMULAE[*]}; do
-    #         tmp="${HOMEBREW_FORMULAE[$i]}"
-    #         [ $(brew list "$tmp" &> /dev/null; printf $?) -eq 0 ] \
-    #             && print_success "$tmp" \
-    #             || execute "brew install $tmp" "$tmp"
-    #     done
+        # Homebrew formulae
+        for i in ${!HOMEBREW_FORMULAE[*]}; do
+            tmp="${HOMEBREW_FORMULAE[$i]}"
+            [ $(brew list "$tmp" &> /dev/null; printf $?) -eq 0 ] \
+                && print_success "$tmp" \
+                || execute "brew install $tmp" "$tmp"
+        done
 
-    #     printf "\n"
+        printf "\n"
 
-    #     # Homebrew casks
-    #     if [ $(brew list brew-cask &> /dev/null; printf $?) -eq 0 ]; then
+        # Homebrew casks
+        if [ $(brew list brew-cask &> /dev/null; printf $?) -eq 0 ]; then
 
-    #         for i in ${!HOMEBREW_CASKS[*]}; do
-    #             tmp="${HOMEBREW_CASKS[$i]}"
-    #             [ $(brew cask list "$tmp" &> /dev/null; printf $?) -eq 0 ] \
-    #                 && print_success "$tmp" \
-    #                 || execute "brew cask install $tmp" "$tmp"
-    #         done
+            for i in ${!HOMEBREW_CASKS[*]}; do
+                tmp="${HOMEBREW_CASKS[$i]}"
+                [ $(brew cask list "$tmp" &> /dev/null; printf $?) -eq 0 ] \
+                    && print_success "$tmp" \
+                    || execute "brew cask install $tmp" "$tmp"
+            done
 
-    #         printf "\n"
+            printf "\n"
 
-    #         # Homebrew alternate casks
-    #         brew tap caskroom/versions &> /dev/null
+            # Homebrew alternate casks
+            brew tap caskroom/versions &> /dev/null
 
-    #         if [ $(brew tap | grep "caskroom/versions" &> /dev/null; printf $?) -eq 0 ]; then
-    #             for i in ${!HOMEBREW_ALTERNATE_CASKS[*]}; do
-    #                 tmp="${HOMEBREW_ALTERNATE_CASKS[$i]}"
-    #                 [ $(brew cask list "$tmp" &> /dev/null; printf $?) -eq 0 ] \
-    #                     && print_success "$tmp" \
-    #                     || execute "brew cask install $tmp" "$tmp"
-    #             done
-    #         fi
-    #     fi
+            if [ $(brew tap | grep "caskroom/versions" &> /dev/null; printf $?) -eq 0 ]; then
+                for i in ${!HOMEBREW_ALTERNATE_CASKS[*]}; do
+                    tmp="${HOMEBREW_ALTERNATE_CASKS[$i]}"
+                    [ $(brew cask list "$tmp" &> /dev/null; printf $?) -eq 0 ] \
+                        && print_success "$tmp" \
+                        || execute "brew cask install $tmp" "$tmp"
+                done
+            fi
+        fi
 
-    # fi
+    fi
 
     slack
     sublime
