@@ -6,8 +6,6 @@
 # - make output for apt-get update / upgrade better
 # - write script/cronjob to backup all day daily
 # - have this restore the VPN
-# - replace the git dot files with my actual own
-# - have the .gitconfig file replace placeholder email with my real email
 # - back up and copy more stuff out of dropbox
 # - have it back up and restore current cronjobs
 # - lots of programs are no longer installing under ubuntu 15.04 >; replace and fix
@@ -283,6 +281,9 @@ main() {
     if answer_is_yes; then
         ./os/install_applications.sh
         printf "\n"
+        # install node via nvm
+        ./os/nvm.sh
+        printf "\n"
         ./os/install_npm_packages.sh
     fi
 
@@ -315,6 +316,17 @@ main() {
             ./os/update_content.sh
         fi
 
+    fi
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    print_info "Restore cronjobs"
+
+    ask_for_confirmation "Do you want to restore cronjobs?"
+    printf "\n"
+
+    if answer_is_yes; then
+        ./os/cron.sh
     fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

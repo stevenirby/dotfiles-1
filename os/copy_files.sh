@@ -33,6 +33,33 @@ main() {
 
     done
 
+    openGitConfig
+    audit
+    apps
+    vpn
+}
+
+openGitConfig() {
+    vim $HOME/.gitconfig
+}
+
+audit() {
+    local audit="~/Dropbox/Backup/.audit"
+    execute "cp $audit $HOME" "$audit → $HOME"
+}
+
+vpn() {
+    local vpn="~/Dropbox/Backup/.audit"
+    execute "cp $audit $HOME" "$audit → $HOME"
+}
+
+apps() {
+    declare -r OS="$(get_os)"
+    local apps="~/Dropbox/Backup/Macbook\ Pro/Applications/*"
+
+    if [ "$OS" == "osx" ]; then
+        execute "cp -av $apps $HOME/Applications/" "$apps → $HOME/Applications"
+    fi
 }
 
 main

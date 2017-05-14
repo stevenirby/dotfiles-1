@@ -13,7 +13,6 @@ declare -a DOT_FILES_TO_SYMLINK=(
     "shell/bashrc"
     "shell/curlrc"
     "shell/inputrc"
-    "shell/screenrc"
 
     "git/gitattributes"
     "git/gitignore"
@@ -21,6 +20,8 @@ declare -a DOT_FILES_TO_SYMLINK=(
     "vim/vim"
     "vim/vimrc"
     "vim/gvimrc"
+
+    "tmux/tmux.conf"
 )
 
 declare -a FILES_TO_SYMLINK=(
@@ -28,6 +29,7 @@ declare -a FILES_TO_SYMLINK=(
     "Dropbox/Documents"
     "Dropbox/Downloads"
     "Dropbox/Gmail"
+
 )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -95,8 +97,27 @@ createFolderLinks() {
         fi
 
     done
-
 }
 
-# createDotfileLinks
+others() {
+    local subl="/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
+    local sublime="/usr/local/bin/sublime"
+    local gmvault="~/Dropbox/Backup/.gmvault"
+    local alfredWorkflows="~/Dropbox/Backup/workflows"
+    local vms="~/Dropbox/Backup/VirtualBox\ VMs/"
+    local sublimePackages="~/Dropbox/Backup/sublime_text/Packages/"
+    declare -r OS="$(get_os)"
+
+    # OS specific symlinks
+    if [ "$OS" == "osx" ]; then
+        execute "ln -s $subl $sublime" "$subl → $sublime"
+        execute "ln -s $alfredWorkflows ~/workflows" "$alfredWorkflows → ~/workflows"
+        execute "ln -s $sublimePackages ~/Library/Application Support/Sublime Text 3/ Packages" "$gmvault → ~/Library/Application Support/Sublime Text 3/ Packages"
+    fi
+
+    execute "ln -s $gmvault ~/.gmvault" "$gmvault → ~/.gmvault"
+    execute "ln -s $vms ~/VirtualBox\ VMs" "$vms → ~/VirtualBox\ VMs"
+}
+
+createDotfileLinks
 createFolderLinks

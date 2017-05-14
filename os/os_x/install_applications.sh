@@ -10,7 +10,6 @@ declare -a HOMEBREW_FORMULAE=(
     "caskroom/cask/brew-cask"
     "git"
     "imagemagick --with-webp"
-    "node"
     "vim --override-system-vi"
     "zopfli"
 )
@@ -32,6 +31,26 @@ declare -a HOMEBREW_CASKS=(
     "transmission"
     "virtualbox"
     "vlc"
+    "android-platform-tools"
+    "aria2"
+    "eot-utils"
+    "fdupes"
+    "fontforge"
+    "gpg"
+    "jq"
+    "lame"
+    "openssl"
+    "pidof"
+    "pip"
+    "python"
+    "rar"
+    "reattach-to-user-namespace"
+    "ruby"
+    "stat"
+    "tmux"
+    "unrar"
+    "wget"
+    "yarn"
 )
 
 # Homebrew Alternate Casks
@@ -111,6 +130,27 @@ main() {
 
     fi
 
+    slack
+    sublime
+}
+
+slack() {
+    open_webpage 'https://www.google.com/?q=download+slack+mac'
+
+
+    ask_for_confirmation "Is slack installed?"
+    printf "\n"
+}
+
+sublime() {
+    open_webpage 'https://www.google.com/?q=download+sublime text 3+mac'
+
+    echo 'Sublime Text License'
+    cat ~/Dropbox/Backup/sublime_text/sublime.txt
+    printf "\n"
+
+    ask_for_confirmation "Is sublime text installed?"
+    printf "\n"
 }
 
 main
