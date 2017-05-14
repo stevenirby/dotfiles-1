@@ -280,3 +280,9 @@ show_spinner() {
     done
 
 }
+
+print_error_stream() {
+    while read -r line; do
+        print_error "↳ ERROR: $line"
+    done
+}
