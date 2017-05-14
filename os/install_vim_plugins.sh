@@ -47,7 +47,7 @@ main() {
 
     print_in_purple "\n   Vim\n\n"
 
-    "./$(get_os)/vim.sh"
+    brew install vim --with-override-system-vi
 
     printf "\n"
 
