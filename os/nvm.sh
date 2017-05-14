@@ -1,9 +1,9 @@
 #!/bin/bash
 
-cd "$(dirname "${BASH_SOURCE[0]}")" \
+cd "$(dirname "${BASH_SOURCE}")" \
     && . "./utils.sh"
 
-declare -r LOCAL_SHELL_CONFIG_FILE="$HOME/.bash.local"
+declare -r LOCAL_SHELL_CONFIG_FILE="$HOME/.bash_profile"
 declare -r NVM_DIRECTORY="$HOME/.nvm"
 declare -r NVM_GIT_REPO_URL="https://github.com/creationix/nvm.git"
 
