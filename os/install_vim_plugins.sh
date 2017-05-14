@@ -45,9 +45,15 @@ update_plugins() {
 
 main() {
 
+    declare -r OS="$(get_os)"
+
     print_in_purple "\n   Vim\n\n"
 
-    brew install vim --with-override-system-vi
+    if [ "$OS" == "osx" ]; then
+        brew install vim --with-override-system-vi
+    elif [ "$OS" == "ubuntu" ]; then
+        sudo apt-get install vim-gnome
+    fi
 
     printf "\n"
 
