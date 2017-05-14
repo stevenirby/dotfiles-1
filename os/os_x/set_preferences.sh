@@ -3,7 +3,7 @@
 cd "$(dirname "${BASH_SOURCE}")" && source "../utils.sh"
 
 # ----------------------------------------------------------------------
-# | Chrome & Chrome Canary                                             |
+# | Chrome                                                             |
 # ----------------------------------------------------------------------
 
 set_chrome_and_chrome_canary_preferences() {
@@ -191,15 +191,6 @@ set_language_and_region_preferences() {
 
     # Set language and text formats
     defaults write NSGlobalDomain AppleLanguages -array "en"
-
-    # Disable auto-correct
-    #defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-    #defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false
-
-    # Set the timezone
-    # (see `systemsetup -listtimezones` for other values)
-    #sudo systemsetup -settimezone "Europe/Bucharest" &> /dev/null
-
 }
 
 # ----------------------------------------------------------------------
@@ -471,7 +462,7 @@ set_ui_and_ux_preferences() {
 
 main() {
 
-    execute "set_chrome_and_chrome_canary_preferences" "Chrome & Chrome Canary"
+    execute "set_chrome_and_chrome_canary_preferences" "Chrome"
     execute "set_dashboard_preferences" "Dashboard"
     execute "set_dock_preferences" "Dock"
     execute "set_finder_preferences" "Finder"
