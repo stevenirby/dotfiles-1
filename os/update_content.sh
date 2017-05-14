@@ -23,8 +23,8 @@ set_github_ssh_key() {
         ssh-keygen -t rsa -C "$(get_answer)"
     fi
 
-    if [ $(cmd_exists "open") -eq 0 ] && \
-       [ $(cmd_exists "pbcopy") -eq 0 ]; then
+    if cmd_exists "open" && \
+       cmd_exists "pbcopy"; then
 
         # Copy SSH key to clipboard
         cat "$sshKeyFile" | pbcopy
@@ -33,8 +33,8 @@ set_github_ssh_key() {
         # Open the GitHub web page where the SSH key can be added
         open "$GITHUB_SSH_URL"
 
-    elif [ $(cmd_exists "xclip") -eq 0 ] && \
-         [ $(cmd_exists "xdg-open") -eq 0 ]; then
+    elif cmd_exists "xclip" && \
+         cmd_exists "xdg-open"; then
 
         # Copy SSH key to clipboard
         cat "$sshKeyFile" | xclip -selection clip

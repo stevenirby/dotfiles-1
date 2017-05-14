@@ -239,7 +239,7 @@ main() {
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Setup the `dotfiles` if needed
-    if [ $(cmd_exists "git") -ne 0 ] || \
+    if cmd_exists "git" || \
        [ "$(git config --get remote.origin.url)" != "$DOTFILES_ORIGIN" ]; then
 
         print_info "Download and extract archive"
@@ -300,7 +300,7 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    if [ $(cmd_exists "git") -eq 0 ]; then
+    if [ cmd_exists "git") -eq 0 ]; then
 
         if [ "$(git config --get remote.origin.url)" != "$DOTFILES_ORIGIN" ]; then
             print_info "Initialize Git repository"
@@ -331,7 +331,7 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # if [ $(cmd_exists "vim") -eq 0 ]; then
+    # if [ cmd_exists "vim") -eq 0 ]; then
 
     #     print_info "Install Vim plugins"
 
