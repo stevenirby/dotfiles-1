@@ -33,9 +33,7 @@ ask_for_sudo() {
 }
 
 cmd_exists() {
-    [ -x "$(command -v "$1")" ] \
-        && printf 0 \
-        || printf 1
+    command -v "$1" &> /dev/null
 }
 
 execute() {
