@@ -59,7 +59,7 @@ add_software_sources() {
     add_ppa "noobslab/themes"
 
     # Google Chrome
-    !cmd_exists "google-chrome" \
+    ! cmd_exists "google-chrome" \
         && add_key "https://dl-ssl.google.com/linux/linux_signing_key.pub" \
         && add_source_list \
                 "http://dl.google.com/linux/chrome/deb/ stable main" \
@@ -70,7 +70,7 @@ add_software_sources() {
 install_package() {
     local q="${2:-$1}"
 
-    if !cmd_exists "$q"; then
+    if ! cmd_exists "$q"; then
         execute "sudo apt-get install --allow-unauthenticated -qqy $1" "$1"
         #                                      suppress output ─┘│
         #            assume "yes" as the answer to all prompts ──┘
