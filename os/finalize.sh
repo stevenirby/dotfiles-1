@@ -15,6 +15,9 @@ main() {
         execute "ln -s $subl /usr/local/bin/sublime" "$subl → /usr/local/bin/sublime"
         execute "ln -s $alfredWorkflows ~/workflows" "$alfredWorkflows → ~/workflows"
         execute "ln -s $sublimePackages ~/Library/Application\ Support/Sublime Text 3/Installed\ Packages" "$sublimePackages → ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages"
+    elif [ "$OS" == "ubuntu" ]; then
+        # execute "ln -s $sublimePackages ~/Library/Application\ Support/Sublime Text 3/Installed\ Packages" "$sublimePackages → ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages"
+        echo
     fi
 
     execute "ln -s $gmvault ~/.gmvault" "$gmvault → ~/.gmvault"

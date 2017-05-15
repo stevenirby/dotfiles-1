@@ -15,26 +15,20 @@ declare -a APT_PACKAGES=(
     #"ubuntu-restricted-extras"
 
     # Other
+    "google-chrome-stable"
     "curl"
     "unar"
     "gimp"
     "git"
-    "gparted"
-    "imagemagick"
-    "npm"
-    "network-manager-openvpn"
+    # "npm"
     "python-pip"
     "rar"
     "kazam"
-    "vim"
+    # "vim"
     "virtualbox"
     "vlc"
     "xclip"
-    "wine"
     "jq"
-    "oracle-java8-installer"
-    "rubyq"
-
 )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -95,7 +89,7 @@ update_and_upgrade() {
 }
 
 node() {
-    xdg-open 'https://www.google.com/?q=download+nodejs+nvm+ubuntu' > /dev/null
+    open_webpage 'https://www.google.com/?q=download+nodejs+nvm+ubuntu'
 
     ask_for_confirmation "Is node installed and you want to continue?"
     printf "\n"
@@ -106,7 +100,7 @@ node() {
 }
 
 chrome() {
-    xdg-open 'https://www.google.com/?q=download+chrome+ubuntu' > /dev/null
+    open_webpage 'https://www.google.com/?q=download+chrome+ubuntu'
 
     ask_for_confirmation "Is chrome installed and you want to continue?"
     printf "\n"
@@ -117,7 +111,7 @@ chrome() {
 }
 
 slack() {
-    xdg-open 'https://www.google.com/?q=download+slack+ubuntu' > /dev/null
+    open_webpage 'https://www.google.com/?q=download+slack+ubuntu'
 
     ask_for_confirmation "Is slack installed and you want to continue?"
     printf "\n"
@@ -125,6 +119,17 @@ slack() {
     if answer_is_yes; then
         echo
     fi
+}
+
+sublime() {
+    open_webpage 'https://www.google.com/?q=download+sublime text 3+ubuntu'
+
+    echo 'Sublime Text License'
+    cat ~/Dropbox/Backup/sublime_text/sublime.txt
+    printf "\n"
+
+    ask_for_confirmation "Is sublime text installed?"
+    printf "\n"
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -135,6 +140,7 @@ main() {
     add_software_sources
     update_and_upgrade
     slack
+    sublime
     node
 
     printf "\n"
