@@ -1,15 +1,17 @@
 #!/bin/bash
 
-# backup all the things, everyday
-
-# TODO
-# - applications for mac os
-# - .audit file
+# set -x
 
 cd "$(dirname "${BASH_SOURCE}")" && source "utils.sh"
 
-main() {
 
+copyAuditFile() {
+    # backup audit file
+    cp $HOME/.audit ~/Dropbox/Backup/.audit
+}
+
+main() {
+    copyAuditFile
 }
 
 main

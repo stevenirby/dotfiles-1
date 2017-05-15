@@ -2,24 +2,7 @@
 
 #set -x
 
-# TODO:
-# - make output for apt-get update / upgrade better
-# - write script/cronjob to backup all day daily
-# - have this restore the VPN
-# - back up and copy more stuff out of dropbox
-# - have it back up and restore current cronjobs
-# - lots of programs are no longer installing under ubuntu 15.04 >; replace and fix
-# - have some kind of period backup script/cronjob set up and ran by this scrit(s)
-# - have some kind of list of all git repos in my projects dir, which gets backed up, restored
-# and then all repos fetched and re-cloned by this script(s)
-# - create sever mode, which sets up dotfiles for a sever
-# - merge the upstream changes into my, I'm sure many things are fixed there
-# - maybe; incorporate the ubuntu backup?
-# - have it restore the VMs as well and other huge files?
-# - pull in updates from upstream branch
-
 declare -r GITHUB_REPOSITORY="stevenirby/dotfiles-1"
-
 declare -r DOTFILES_ORIGIN="git@github.com:$GITHUB_REPOSITORY.git"
 declare -r DOTFILES_TARBALL_URL="http://github.com/$GITHUB_REPOSITORY/tarball/master"
 declare -r DOTFILES_UTILS_URL="https://raw.githubusercontent.com/$GITHUB_REPOSITORY/master/os/utils.sh"
