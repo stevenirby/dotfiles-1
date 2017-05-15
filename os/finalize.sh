@@ -16,7 +16,6 @@ main() {
         execute "ln -s $alfredWorkflows ~/workflows" "$alfredWorkflows → ~/workflows"
         execute "ln -s $sublimePackages ~/Library/Application\ Support/Sublime Text 3/" "$sublimePackages → ~/Library/Application\ Support/Sublime\ Text\ 3"
     elif [ "$OS" == "ubuntu" ]; then
-        execute "rm -r ~/.config/sublime-text-3" "rm ~/.config/sublime-text-3"
         execute "ln -s $sublimePackages ~/.config/sublime-text-3" "$sublimePackages → ~/.config/sublime-text-3"
     fi
 
