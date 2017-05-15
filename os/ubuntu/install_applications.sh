@@ -25,7 +25,6 @@ declare -a APT_PACKAGES=(
     "network-manager-openvpn"
     "python-pip"
     "rar"
-    "transmission"
     "kazam"
     "vim"
     "virtualbox"
@@ -96,7 +95,7 @@ update_and_upgrade() {
 }
 
 node() {
-    xdg-open 'https://www.google.com/?q=download+nodejs+ubuntu' > /dev/null
+    xdg-open 'https://www.google.com/?q=download+nodejs+nvm+ubuntu' > /dev/null
 
     ask_for_confirmation "Is node installed and you want to continue?"
     printf "\n"
