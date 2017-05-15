@@ -50,9 +50,9 @@ main() {
     print_in_purple "\n   Vim\n\n"
 
     if [ "$OS" == "osx" ]; then
-        brew install vim --with-override-system-vi
+        execute "brew install vim --with-override-system-vi" "brew install vim"
     elif [ "$OS" == "ubuntu" ]; then
-        sudo apt-get install vim-gnome
+        execute "sudo apt-get install vim-gnome" "apt-get install vim"
     fi
 
     printf "\n"
