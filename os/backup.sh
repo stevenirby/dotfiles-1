@@ -10,8 +10,13 @@ copyAuditFile() {
     cp $HOME/.audit ~/Dropbox/Backup/.audit
 }
 
+backupCron() {
+    crontab -l > ~/Dropbox/Backup/crontab_backup
+}
+
 main() {
     copyAuditFile
+    backupCron
 }
 
 main

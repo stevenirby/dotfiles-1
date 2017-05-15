@@ -29,7 +29,7 @@ apps() {
     local apps="~/Dropbox/Backup/Macbook\ Pro/Applications/*"
 
     if [ "$OS" == "osx" ]; then
-        execute "cp -av $apps $HOME/Applications/" "$apps → $HOME/Applications"
+        execute "cp -a $apps /Applications/" "$apps → /Applications"
     fi
 }
 

@@ -44,12 +44,12 @@ openGitConfig() {
 
 audit() {
     local audit="~/Dropbox/Backup/.audit"
-    execute "cp $audit $HOME" "$audit → $HOME"
+    execute "cp -av $audit $HOME/" "$audit → $HOME/"
 }
 
 vpn() {
     local vpn="~/Dropbox/Backup/vpn"
-    execute "cp $vpn $HOME" "$vpn → $HOME"
+    execute "cp -av $vpn $HOME/" "$vpn → $HOME/"
 }
 
 main
