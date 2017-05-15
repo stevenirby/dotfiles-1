@@ -267,7 +267,7 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    if cmd_exists "vim"; then
+    if ! cmd_exists "vim"; then
 
         print_info "Install Vim plugins"
 
