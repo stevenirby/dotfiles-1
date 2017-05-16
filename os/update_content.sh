@@ -54,6 +54,31 @@ set_github_ssh_key() {
 
     cd "$workingDirectory"
 
+    restoreProjects
+}
+
+restoreProjects() {
+    local projectsFile="`echo ~/Dropbox/Backup/projects.txt`"
+
+    if [ -e "$projectsFile" ]; then
+        ask_for_confirmation "Do you want to restore projects?"
+        printf "\n"
+
+        if answer_is_yes; then
+            for i in `cat $projectsFile`; do
+                cloneProject "$i"
+            done
+        fi
+    fi
+}
+
+cloneProject() {
+    ask_for_confirmation "git clone $1?"
+    printf "\n"
+
+    if answer_is_yes; then
+        execute "git clone $1 ~/projects" "git clone $1";
+    fi
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -75,6 +100,7 @@ main() {
 
     fi
 
+    restoreProjects
 }
 
 main
