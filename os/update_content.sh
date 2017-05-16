@@ -75,7 +75,9 @@ cloneProject() {
     printf "\n"
 
     if answer_is_yes; then
-        execute "git clone $1 ~/projects" "git clone $1";
+        cd  ~/projects;
+        execute "git clone $1" "git clone $1";
+        cd "$workingDirectory";
     fi
 }
 
