@@ -53,8 +53,6 @@ set_github_ssh_key() {
     print_success "Set up the SSH key"
 
     cd "$workingDirectory"
-
-    restoreProjects
 }
 
 restoreProjects() {
