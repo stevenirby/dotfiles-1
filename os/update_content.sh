@@ -98,7 +98,7 @@ main() {
 
     fi
 
-    restoreProjects
 }
 
 main
+restoreProjects
