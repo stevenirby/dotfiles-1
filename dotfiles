@@ -288,7 +288,7 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    if ! isServerMode then;
+    if ! isServerMode; then
         print_info "Set preferences"
 
         ask_for_confirmation "Do you want to set the custom preferences?"
@@ -321,7 +321,7 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    if ! isServerMode then;
+    if ! isServerMode; then
         print_info "Restore cronjobs"
 
         ask_for_confirmation "Do you want to restore cronjobs?"
@@ -334,7 +334,7 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    if ! isServerMode then;
+    if ! isServerMode; then
         print_info "Finalize Everything"
 
         ask_for_confirmation "Do you want to finalize everything?"
