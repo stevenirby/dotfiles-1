@@ -35,7 +35,9 @@ main() {
 
     openGitConfig
     audit
-    vpn
+    if ! isServerMode; then
+        vpn
+    fi
 }
 
 openGitConfig() {

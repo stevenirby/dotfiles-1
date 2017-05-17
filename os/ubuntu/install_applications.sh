@@ -2,34 +2,47 @@
 
 cd "$(dirname "${BASH_SOURCE}")" && source "../utils.sh"
 
-declare -a APT_PACKAGES=(
+if ! isServerMode; then
+    declare -a APT_PACKAGES=(
 
-    # Tools for compiling/building software from source
-    "build-essential"
+        # Tools for compiling/building software from source
+        "build-essential"
 
-    # GnuPG archive keys of the Debian archive
-    "debian-archive-keyring"
+        # GnuPG archive keys of the Debian archive
+        "debian-archive-keyring"
 
-    # Software which is not included by default
-    # in Ubuntu due to legal or copyright reasons
-    #"ubuntu-restricted-extras"
+        # Software which is not included by default
+        # in Ubuntu due to legal or copyright reasons
+        "ubuntu-restricted-extras"
 
-    # Other
-    "google-chrome-stable"
-    "curl"
-    "unar"
-    "gimp"
-    "git"
-    # "npm"
-    "python-pip"
-    "rar"
-    "kazam"
-    # "vim"
-    "virtualbox"
-    "vlc"
-    "xclip"
-    "jq"
-)
+        # Other
+        "google-chrome-stable"
+        "curl"
+        "unar"
+        "gimp"
+        "git"
+        # "npm"
+        "python-pip"
+        "rar"
+        "kazam"
+        # "vim"
+        "virtualbox"
+        "vlc"
+        "xclip"
+        "jq"
+    )
+else
+    declare -a APT_PACKAGES=(
+        "build-essential"
+        "debian-archive-keyring"
+        "ubuntu-restricted-extras"
+        "curl"
+        "git"
+        "python-pip"
+        "xclip"
+        "jq"
+    )
+fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -137,11 +150,16 @@ sublime() {
 main() {
     local i=""
 
-    add_software_sources
-    update_and_upgrade
-    slack
-    sublime
-    node
+    if ! isServerMode; then
+        add_software_sources
+    else
+        update_and_upgrade
+    fi
+    if ! isServerMode; then
+        slack
+        sublime
+        node
+    fi
 
     printf "\n"
 
@@ -152,7 +170,6 @@ main() {
     printf "\n"
 
     remove_unneeded_packages
-
 }
 
 main

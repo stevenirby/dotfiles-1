@@ -286,3 +286,11 @@ print_error_stream() {
         print_error "↳ ERROR: $line"
     done
 }
+
+isServerMode() {
+    if [ "$SERVER_MODE" == "true" ]; then
+        return 1;
+    fi
+
+    return 0;
+}

@@ -2,6 +2,10 @@
 
 #set -x
 
+if [ "$SERVER_MODE" == "true" ]; then
+    echo 'Sever mode';
+fi
+
 declare -r GITHUB_REPOSITORY="stevenirby/dotfiles-1"
 declare -r DOTFILES_ORIGIN="git@github.com:$GITHUB_REPOSITORY.git"
 declare -r DOTFILES_TARBALL_URL="http://github.com/$GITHUB_REPOSITORY/tarball/master"
@@ -225,8 +229,10 @@ main() {
 
     fi
 
-    print_info "Install Dropbox"
-    open_browser_wait_for_dropbox
+    if ! isServerMode; then
+        print_info "Install Dropbox"
+        open_browser_wait_for_dropbox
+    fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -282,13 +288,15 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    print_info "Set preferences"
+    if ! isServerMode then;
+        print_info "Set preferences"
 
-    ask_for_confirmation "Do you want to set the custom preferences?"
-    printf "\n"
+        ask_for_confirmation "Do you want to set the custom preferences?"
+        printf "\n"
 
-    if answer_is_yes; then
-        ./os/set_preferences.sh
+        if answer_is_yes; then
+            ./os/set_preferences.sh
+        fi
     fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -313,24 +321,28 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    print_info "Restore cronjobs"
+    if ! isServerMode then;
+        print_info "Restore cronjobs"
 
-    ask_for_confirmation "Do you want to restore cronjobs?"
-    printf "\n"
+        ask_for_confirmation "Do you want to restore cronjobs?"
+        printf "\n"
 
-    if answer_is_yes; then
-        ./os/cron.sh
+        if answer_is_yes; then
+            ./os/cron.sh
+        fi
     fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    print_info "Finalize Everything"
+    if ! isServerMode then;
+        print_info "Finalize Everything"
 
-    ask_for_confirmation "Do you want to finalize everything?"
-    printf "\n"
+        ask_for_confirmation "Do you want to finalize everything?"
+        printf "\n"
 
-    if answer_is_yes; then
-        ./os/finalize.sh
+        if answer_is_yes; then
+            ./os/finalize.sh
+        fi
     fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
