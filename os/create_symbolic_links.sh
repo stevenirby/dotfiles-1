@@ -101,6 +101,6 @@ createFolderLinks() {
 
 createDotfileLinks
 
-if isServerMode; then
+if ! isServerMode; then
     createFolderLinks
 fi
