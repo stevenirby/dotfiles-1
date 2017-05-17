@@ -52,7 +52,11 @@ main() {
     if [ "$OS" == "osx" ]; then
         execute "brew install vim --with-override-system-vi" "brew install vim"
     elif [ "$OS" == "ubuntu" ]; then
-        execute "sudo apt-get install vim-gnome" "apt-get install vim"
+        if isServerMode; then
+            execute "sudo apt-get install vim" "apt-get install vim"
+        else
+            execute "sudo apt-get install vim-gnome" "apt-get install vim"
+        fi
     fi
 
     printf "\n"
