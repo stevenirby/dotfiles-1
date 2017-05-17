@@ -53,9 +53,9 @@ main() {
         execute "brew install vim --with-override-system-vi" "brew install vim"
     elif [ "$OS" == "ubuntu" ]; then
         if isServerMode; then
-            execute "sudo apt-get install vim" "apt-get install vim"
+            execute "sudo apt-get -y install vim" "apt-get install vim"
         else
-            execute "sudo apt-get install vim-gnome" "apt-get install vim"
+            execute "sudo apt-get -y install vim-gnome" "apt-get install vim"
         fi
     fi
 
