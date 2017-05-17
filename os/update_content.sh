@@ -102,5 +102,8 @@ main() {
 
 }
 
-main
-restoreProjects
+if ! isServerMode; then
+    main
+else
+    restoreProjects
+fi
