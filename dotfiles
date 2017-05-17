@@ -229,7 +229,6 @@ main() {
 
     fi
 
-    echo isServerMode
     if ! isServerMode; then
         print_info "Install Dropbox"
         open_browser_wait_for_dropbox
