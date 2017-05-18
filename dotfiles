@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#set -x
+set -x
 
 if [ "$SERVER_MODE" == "true" ]; then
     echo 'Sever mode';
