@@ -290,8 +290,8 @@ print_error_stream() {
 isServerMode() {
     if [ "$SERVER_MODE" == "true" ]; then
         print_in_green 'SERVER MODE ON'
-        return 1;
+        return 0;
     fi
 
-    return 0;
+    return 1;
 }
