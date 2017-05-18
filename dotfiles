@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+# set -x
 
 declare -r GITHUB_REPOSITORY="stevenirby/dotfiles-1"
 declare -r DOTFILES_ORIGIN="git@github.com:$GITHUB_REPOSITORY.git"
@@ -215,6 +215,12 @@ main() {
     download_utils
     ask_for_sudo
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    if isServerMode; then
+        echo 'SERVER MODE ON'
+    else
+        echo 'SERVER MODE OFF'
+    fi
 
     # Setup the `dotfiles` if needed
     if cmd_exists "git" || \
