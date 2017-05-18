@@ -289,7 +289,7 @@ print_error_stream() {
 
 isServerMode() {
 
-    if [  "$SERVER_MODE" == 'true' ]; then
+    if [  "$SERVER_MODE" = 'true' ]; then
         return 0;
     fi
 
