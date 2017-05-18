@@ -1,10 +1,6 @@
 #!/bin/bash
 
-# set -x
-
-if [ "$SERVER_MODE" == "true" ]; then
-    echo 'Sever mode';
-fi
+set -x
 
 declare -r GITHUB_REPOSITORY="stevenirby/dotfiles-1"
 declare -r DOTFILES_ORIGIN="git@github.com:$GITHUB_REPOSITORY.git"
