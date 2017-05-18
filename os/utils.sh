@@ -288,7 +288,7 @@ print_error_stream() {
 }
 
 isServerMode() {
-    if [  -n "$SERVER_MODE" ]; then
+    if [  -z "$SERVER_MODE" ]; then
         print_in_green 'SERVER MODE ON'
         return 0;
     fi
