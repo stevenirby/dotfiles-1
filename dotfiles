@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# set -x
+set -x
 
 declare -r GITHUB_REPOSITORY="stevenirby/dotfiles-1"
 declare -r DOTFILES_ORIGIN="git@github.com:$GITHUB_REPOSITORY.git"
@@ -216,10 +216,10 @@ main() {
     ask_for_sudo
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    if isServerMode; then
-        echo 'SERVER MODE ON'
+    if isLiteMode; then
+        echo 'LITE MODE ON'
     else
-        echo 'SERVER MODE OFF'
+        echo 'LITE MODE OFF'
     fi
 
     # Setup the `dotfiles` if needed
@@ -230,6 +230,8 @@ main() {
         download_dotfiles
 
     fi
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     if ! isServerMode; then
         print_info "Install Dropbox"

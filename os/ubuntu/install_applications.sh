@@ -2,7 +2,7 @@
 
 cd "$(dirname "${BASH_SOURCE}")" && source "../utils.sh"
 
-if ! isServerMode; then
+if ! isServerMode && ! isLiteMode; then
     declare -a APT_PACKAGES=(
 
         # Tools for compiling/building software from source
@@ -101,28 +101,6 @@ update_and_upgrade() {
 
 }
 
-node() {
-    open_webpage 'https://www.google.com/?q=download+nodejs+nvm+ubuntu'
-
-    ask_for_confirmation "Is node installed and you want to continue?"
-    printf "\n"
-
-    if answer_is_yes; then
-        echo
-    fi
-}
-
-chrome() {
-    open_webpage 'https://www.google.com/?q=download+chrome+ubuntu'
-
-    ask_for_confirmation "Is chrome installed and you want to continue?"
-    printf "\n"
-
-    if answer_is_yes; then
-        echo
-    fi
-}
-
 slack() {
     open_webpage 'https://www.google.com/?q=download+slack+ubuntu'
 
@@ -158,7 +136,6 @@ main() {
     if ! isServerMode; then
         slack
         sublime
-        node
     fi
 
     printf "\n"

@@ -295,3 +295,13 @@ isServerMode() {
 
     return 1;
 }
+
+isLiteMode() {
+
+    if [  "$LITE_MODE" = 'true' ]; then
+        return 0;
+    fi
+
+    return 1;
+
+}
