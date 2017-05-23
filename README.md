@@ -8,6 +8,7 @@ To setup the dotfiles, run the following snippet in the terminal:
 |:---:|:---|
 | OS X | `bash -c "$(curl -LsS https://raw.github.com/stevenirby/dotfiles-1/master/dotfiles)"` |
 | Ubuntu | `bash -c "$(wget -qO - https://raw.github.com/stevenirby/dotfiles-1/master/dotfiles)"` |
+| Server | `evn SERVER_MODE=true bash -c "$(wget -qO - https://raw.github.com/stevenirby/dotfiles-1/master/dotfiles)"` |
 
 The snippet will:
 
